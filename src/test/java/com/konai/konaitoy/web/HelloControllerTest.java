@@ -1,5 +1,6 @@
 package com.konai.konaitoy.web;
 
+import lombok.NoArgsConstructor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +16,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @WebMvcTest(controllers = HelloController.class)
 public class HelloControllerTest {
-    @Autowired
-   private MockMvc mvc;
 
+    @Autowired
+    private MockMvc mvc;
 
     @Test
     public void hello가_리턴된다() throws Exception{
