@@ -8,6 +8,7 @@ import com.konai.konaitoy.web.dto.PostsSaveRequestDTO;
 import com.konai.konaitoy.web.dto.PostsUpdateRequestDTO;
 import lombok.RequiredArgsConstructor;
 import org.junit.Test;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,9 +20,13 @@ import java.util.stream.Collectors;
 public class PostsService {
 
     private final PostsRepository postsRepository;
+    private final ModelMapper modelMapper;
 
     @Transactional
     public Long save(PostsSaveRequestDTO requestDTO){
+//        // ModelMapper
+//        Posts post = modelMapper.map(requestDTO, Posts.class);
+//        return postsRepository.save(post).getId();
         return postsRepository.save(requestDTO.toEntity()).getId();
     }
 
